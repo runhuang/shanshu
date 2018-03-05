@@ -1,0 +1,451 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>自适应显示多个点标记</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <style>
+        .info-tip {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            background-color: #fff;
+            height: 35px;
+            text-align: left;
+        }
+    </style>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.4.4&key=您申请的key值"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<div class="button-group">
+    <input id="setFitView" class="button" type="button" value="地图自适应显示"/>
+</div>
+<div class="info-tip">
+    <div id="centerCoord"></div>
+    <div id="tips"></div>
+</div>
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: [116.397428, 39.90923],
+        zoom: 13
+    });    
+    map.clearMap();  // 清除地图覆盖物
+    var markers = [
+      {
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.997504,36.708535999999995],
+content:"89"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.17031,36.680851000000004],
+content:"90"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.17031,36.680851000000004],
+content:"91"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.965377,36.660064],
+content:"92"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.957197,36.634128000000004],
+content:"93"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.953086,36.588365],
+content:"94"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.965377,36.660064],
+content:"95"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.122067,36.628805],
+content:"96"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.989182,36.649531],
+content:"97"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.09384,36.6837],
+content:"10"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.992771,36.686972],
+content:"98"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.064583,36.641108],
+content:"11"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.957994,36.626792],
+content:"99"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.163628,36.642128],
+content:"12"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.070868,36.637459],
+content:"13"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.086406,36.689336],
+content:"14"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.086164,36.660938],
+content:"16"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.18431,36.717987],
+content:"19"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.994747,36.666401],
+content:"0"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.069578,36.648728000000006],
+content:"1"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.062864,36.663218],
+content:"2"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.048409,36.697778],
+content:"4"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.051526,36.695595000000004],
+content:"5"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.153804,36.721932],
+content:"6"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.121461,36.703538],
+content:"7"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.070868,36.637459],
+content:"8"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.126074,36.694953000000005],
+content:"9"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.062807,36.66188],
+content:"20"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.035727,36.693381],
+content:"21"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.030139,36.658433],
+content:"25"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.074,36.654875],
+content:"26"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.04975,36.696699],
+content:"27"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.064795,36.706972],
+content:"28"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.000859,36.671890999999995],
+content:"29"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.95123,36.64282],
+content:"30"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.00569,36.663952],
+content:"31"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.005183,36.652332],
+content:"32"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.951529,36.657783],
+content:"33"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.828558,36.629391],
+content:"34"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.119999,36.651216],
+content:"35"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.970882,36.66494],
+content:"36"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.916841,36.649798],
+content:"37"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.949288,36.627185],
+content:"38"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.949288,36.627185],
+content:"39"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.951462,36.625254],
+content:"40"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.958609,36.630772],
+content:"41"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.947722,36.644822999999995],
+content:"42"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.958212,36.627317],
+content:"43"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.96144,36.642956],
+content:"44"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.949288,36.627534000000004],
+content:"45"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.976251,36.642716],
+content:"46"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.950418,36.658393],
+content:"47"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.950418,36.658393],
+content:"48"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.953086,36.588365],
+content:"49"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.953086,36.588365],
+content:"50"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.961682,36.655095],
+content:"51"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.95133,36.654090000000004],
+content:"52"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.947722,36.644822999999995],
+content:"53"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.116888,36.686780999999996],
+content:"54"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.153804,36.721932],
+content:"55"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.153804,36.721932],
+content:"56"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.035713,36.658501],
+content:"57"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.153804,36.721932],
+content:"58"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.962667,36.652621999999994],
+content:"59"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.956186,36.628917],
+content:"60"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.99333,36.623719],
+content:"61"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.962833,36.650881],
+content:"62"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.985319,36.682032],
+content:"63"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.21504,36.857576],
+content:"64"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.953746,36.675956],
+content:"65"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.013031,36.717701],
+content:"66"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.923642,36.626009],
+content:"67"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.952237,36.661539000000005],
+content:"68"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.913255,36.6281],
+content:"69"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.899806,36.63001],
+content:"70"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.952189,36.652421000000004],
+content:"71"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.968064,36.644651],
+content:"72"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.964496,36.656833],
+content:"73"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.996615,36.632801],
+content:"74"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.901663,36.659081],
+content:"75"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.01175,36.610723],
+content:"76"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.900053,36.658547999999996],
+content:"77"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.048218,36.696825],
+content:"78"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.996165,36.673545000000004],
+content:"79"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.031464,36.714684000000005],
+content:"100"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.983,36.617129],
+content:"101"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.983,36.617129],
+content:"102"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.988296,36.663299],
+content:"103"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.987591,36.666086],
+content:"104"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.987591,36.666086],
+content:"105"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.990208,36.654436],
+content:"106"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [117.01192,36.708385],
+content:"80"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.988422,36.662896],
+content:"107"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.90175,36.642039000000004],
+content:"81"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.991673,36.630402000000004],
+content:"83"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.997865,36.633656],
+content:"84"},
+{
+icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png',
+position: [116.972934,36.709604999999996],
+content:"86"}
+    ];
+    // 添加一些分布不均的点到地图上,地图上添加三个点标记，作为参照
+    markers.forEach(function(marker) {
+        new AMap.Marker({
+            map: map,
+            position: [marker.position[0], marker.position[1]],
+            label:{content:marker.content,offset: new AMap.Pixel(3,-12)}
+        });
+    });
+    var center = map.getCenter();
+    var centerText = '当前中心点坐标：' + center.getLng() + ',' + center.getLat();
+    document.getElementById('centerCoord').innerHTML = centerText;
+    document.getElementById('tips').innerHTML = '成功添加三个点标记，其中有两个在当前地图视野外！';
+
+    // 添加事件监听, 使地图自适应显示到合适的范围
+    AMap.event.addDomListener(document.getElementById('setFitView'), 'click', function() {
+        var newCenter = map.setFitView();
+        document.getElementById('centerCoord').innerHTML = '当前中心点坐标：' + newCenter.getCenter();
+        document.getElementById('tips').innerHTML = '通过setFitView，地图自适应显示到合适的范围内,点标记已全部显示在视野中！';
+    });
+</script>
+</body>
+</html>

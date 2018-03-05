@@ -1,0 +1,266 @@
++--------------------------------------------------------------------------------------------------------------------------------+
+| detailed solution                                                                                                              |
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| route   | vehicle              | activity              | job             | arrTime         | endTime         | costs           |
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 1       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 1       | vehicle              | pickupShipment        | 66              | 0               | 0               | 0               | 4              
+| 1       | vehicle              | pickupShipment        | 64              | 0               | 0               | 0               | 4              
+| 1       | vehicle              | deliverShipment       | 66              | 1680            | 2880            | 11215           | 4              
+| 1       | vehicle              | deliverShipment       | 64              | 5160            | 6360            | 40878           | 4              
+| 1       | vehicle              | end                   | -               | 6360            | undef           | 40878           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 2       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 2       | vehicle              | pickupShipment        | 1               | 0               | 0               | 0               | 28             
+| 2       | vehicle              | pickupShipment        | 2               | 0               | 0               | 0               | 28             
+| 2       | vehicle              | deliverShipment       | 2               | 1860            | 3060            | 7518            | 28             
+| 2       | vehicle              | deliverShipment       | 1               | 3660            | 4860            | 10379           | 28             
+| 2       | vehicle              | end                   | -               | 4860            | undef           | 10379           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 3       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 3       | vehicle              | pickupShipment        | 93              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 37              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 46              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 106             | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 42              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 30              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 53              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 38              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 39              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 34              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | pickupShipment        | 45              | 0               | 0               | 0               | 75             
+| 3       | vehicle              | deliverShipment       | 106             | 360             | 1560            | 1749            | 75             
+| 3       | vehicle              | deliverShipment       | 46              | 2280            | 3480            | 5355            | 75             
+| 3       | vehicle              | deliverShipment       | 30              | 4080            | 5280            | 8052            | 75             
+| 3       | vehicle              | deliverShipment       | 93              | 5760            | 6960            | 9936            | 75             
+| 3       | vehicle              | deliverShipment       | 45              | 7380            | 8580            | 12468           | 75             
+| 3       | vehicle              | deliverShipment       | 38              | 8640            | 9840            | 12469           | 75             
+| 3       | vehicle              | deliverShipment       | 39              | 9900            | 11100           | 12470           | 75             
+| 3       | vehicle              | deliverShipment       | 42              | 11460           | 12660           | 14686           | 75             
+| 3       | vehicle              | deliverShipment       | 53              | 12840           | 14040           | 15540           | 75             
+| 3       | vehicle              | deliverShipment       | 37              | 14640           | 15840           | 19688           | 75             
+| 3       | vehicle              | deliverShipment       | 34              | 17160           | 18360           | 30936           | 75             
+| 3       | vehicle              | end                   | -               | 18360           | undef           | 30936           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 4       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 4       | vehicle              | pickupShipment        | 71              | 0               | 0               | 0               | 7              
+| 4       | vehicle              | pickupShipment        | 77              | 0               | 0               | 0               | 7              
+| 4       | vehicle              | pickupShipment        | 75              | 0               | 0               | 0               | 7              
+| 4       | vehicle              | pickupShipment        | 70              | 0               | 0               | 0               | 7              
+| 4       | vehicle              | deliverShipment       | 71              | 1140            | 2340            | 5073            | 7              
+| 4       | vehicle              | deliverShipment       | 75              | 3600            | 4800            | 12151           | 7              
+| 4       | vehicle              | deliverShipment       | 77              | 4920            | 6120            | 12608           | 7              
+| 4       | vehicle              | deliverShipment       | 70              | 6600            | 7800            | 16182           | 7              
+| 4       | vehicle              | end                   | -               | 7800            | undef           | 16182           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 5       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 5       | vehicle              | pickupShipment        | 81              | 0               | 0               | 0               | 101            
+| 5       | vehicle              | deliverShipment       | 81              | 1860            | 3060            | 11590           | 101            
+| 5       | vehicle              | end                   | -               | 3060            | undef           | 11590           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 6       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 6       | vehicle              | pickupShipment        | 27              | 0               | 0               | 0               | 75             
+| 6       | vehicle              | pickupShipment        | 78              | 0               | 0               | 0               | 7              
+| 6       | vehicle              | pickupShipment        | 4               | 0               | 0               | 0               | 43             
+| 6       | vehicle              | pickupShipment        | 28              | 0               | 0               | 0               | 75             
+| 6       | vehicle              | pickupShipment        | 5               | 0               | 0               | 0               | 43             
+| 6       | vehicle              | deliverShipment       | 5               | 1860            | 3060            | 7445            | 43             
+| 6       | vehicle              | deliverShipment       | 28              | 3300            | 4500            | 9070            | 75             
+| 6       | vehicle              | deliverShipment       | 27              | 4860            | 6060            | 11409           | 75             
+| 6       | vehicle              | deliverShipment       | 78              | 6120            | 7320            | 11410           | 7              
+| 6       | vehicle              | deliverShipment       | 4               | 7380            | 8580            | 11529           | 43             
+| 6       | vehicle              | end                   | -               | 8580            | undef           | 11529           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 7       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 7       | vehicle              | pickupShipment        | 83              | 0               | 0               | 0               | 101            
+| 7       | vehicle              | pickupShipment        | 76              | 0               | 0               | 0               | 7              
+| 7       | vehicle              | pickupShipment        | 74              | 0               | 0               | 0               | 7              
+| 7       | vehicle              | pickupShipment        | 84              | 0               | 0               | 0               | 101            
+| 7       | vehicle              | deliverShipment       | 84              | 840             | 2040            | 5027            | 101            
+| 7       | vehicle              | deliverShipment       | 83              | 2460            | 3660            | 6168            | 101            
+| 7       | vehicle              | deliverShipment       | 74              | 3780            | 4980            | 6560            | 7              
+| 7       | vehicle              | deliverShipment       | 76              | 5820            | 7020            | 10110           | 7              
+| 7       | vehicle              | end                   | -               | 7020            | undef           | 10110           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 8       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 8       | vehicle              | pickupShipment        | 101             | 0               | 0               | 0               | 77             
+| 8       | vehicle              | pickupShipment        | 102             | 0               | 0               | 0               | 77             
+| 8       | vehicle              | deliverShipment       | 101             | 1080            | 2280            | 6948            | 77             
+| 8       | vehicle              | deliverShipment       | 102             | 2340            | 3540            | 6949            | 77             
+| 8       | vehicle              | end                   | -               | 3540            | undef           | 6949            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 9       | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 9       | vehicle              | pickupShipment        | 16              | 0               | 0               | 0               | 107            
+| 9       | vehicle              | pickupShipment        | 14              | 0               | 0               | 0               | 107            
+| 9       | vehicle              | pickupShipment        | 20              | 0               | 0               | 0               | 107            
+| 9       | vehicle              | pickupShipment        | 19              | 0               | 0               | 0               | 107            
+| 9       | vehicle              | deliverShipment       | 20              | 1800            | 3000            | 7372            | 107            
+| 9       | vehicle              | deliverShipment       | 16              | 3660            | 4860            | 10501           | 107            
+| 9       | vehicle              | deliverShipment       | 14              | 5700            | 6900            | 14036           | 107            
+| 9       | vehicle              | deliverShipment       | 19              | 8640            | 9840            | 26322           | 107            
+| 9       | vehicle              | end                   | -               | 9840            | undef           | 26322           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 10      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 10      | vehicle              | pickupShipment        | 100             | 0               | 0               | 0               | 91             
+| 10      | vehicle              | deliverShipment       | 100             | 1680            | 2880            | 10841           | 91             
+| 10      | vehicle              | end                   | -               | 2880            | undef           | 10841           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 11      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 11      | vehicle              | pickupShipment        | 80              | 0               | 0               | 0               | 82             
+| 11      | vehicle              | deliverShipment       | 80              | 1800            | 3000            | 10709           | 82             
+| 11      | vehicle              | end                   | -               | 3000            | undef           | 10709           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 12      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 12      | vehicle              | pickupShipment        | 89              | 0               | 0               | 0               | 101            
+| 12      | vehicle              | pickupShipment        | 86              | 0               | 0               | 0               | 101            
+| 12      | vehicle              | deliverShipment       | 89              | 1260            | 2460            | 6663            | 101            
+| 12      | vehicle              | deliverShipment       | 86              | 3300            | 4500            | 10551           | 101            
+| 12      | vehicle              | end                   | -               | 4500            | undef           | 10551           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 13      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 13      | vehicle              | pickupShipment        | 35              | 0               | 0               | 0               | 75             
+| 13      | vehicle              | pickupShipment        | 96              | 0               | 0               | 0               | 75             
+| 13      | vehicle              | pickupShipment        | 26              | 0               | 0               | 0               | 75             
+| 13      | vehicle              | pickupShipment        | 25              | 0               | 0               | 0               | 75             
+| 13      | vehicle              | pickupShipment        | 57              | 0               | 0               | 0               | 60             
+| 13      | vehicle              | deliverShipment       | 57              | 1260            | 2460            | 5694            | 60             
+| 13      | vehicle              | deliverShipment       | 25              | 2520            | 3720            | 5695            | 75             
+| 13      | vehicle              | deliverShipment       | 26              | 4800            | 6000            | 9887            | 75             
+| 13      | vehicle              | deliverShipment       | 35              | 6600            | 7800            | 14502           | 75             
+| 13      | vehicle              | deliverShipment       | 96              | 8580            | 9780            | 20825           | 75             
+| 13      | vehicle              | end                   | -               | 9780            | undef           | 20825           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 14      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 14      | vehicle              | pickupShipment        | 29              | 0               | 0               | 0               | 75             
+| 14      | vehicle              | pickupShipment        | 31              | 0               | 0               | 0               | 75             
+| 14      | vehicle              | pickupShipment        | 32              | 0               | 0               | 0               | 75             
+| 14      | vehicle              | pickupShipment        | 61              | 0               | 0               | 0               | 75             
+| 14      | vehicle              | deliverShipment       | 29              | 540             | 1740            | 1677            | 75             
+| 14      | vehicle              | deliverShipment       | 31              | 2160            | 3360            | 3250            | 75             
+| 14      | vehicle              | deliverShipment       | 32              | 3720            | 4920            | 5186            | 75             
+| 14      | vehicle              | deliverShipment       | 61              | 5760            | 6960            | 9810            | 75             
+| 14      | vehicle              | end                   | -               | 6960            | undef           | 9810            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 15      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 15      | vehicle              | pickupShipment        | 91              | 0               | 0               | 0               | 199            
+| 15      | vehicle              | pickupShipment        | 90              | 0               | 0               | 0               | 199            
+| 15      | vehicle              | deliverShipment       | 91              | 2640            | 3840            | 20471           | 199            
+| 15      | vehicle              | deliverShipment       | 90              | 3900            | 5100            | 20485           | 199            
+| 15      | vehicle              | end                   | -               | 5100            | undef           | 20485           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 16      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 16      | vehicle              | pickupShipment        | 65              | 0               | 0               | 0               | 4              
+| 16      | vehicle              | pickupShipment        | 105             | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 103             | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 48              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 47              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 68              | 0               | 0               | 0               | 4              
+| 16      | vehicle              | pickupShipment        | 67              | 0               | 0               | 0               | 4              
+| 16      | vehicle              | pickupShipment        | 69              | 0               | 0               | 0               | 4              
+| 16      | vehicle              | pickupShipment        | 107             | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 104             | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 95              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 33              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 52              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | pickupShipment        | 92              | 0               | 0               | 0               | 75             
+| 16      | vehicle              | deliverShipment       | 107             | 300             | 1500            | 1364            | 75             
+| 16      | vehicle              | deliverShipment       | 103             | 1560            | 2760            | 1406            | 75             
+| 16      | vehicle              | deliverShipment       | 105             | 3000            | 4200            | 2641            | 75             
+| 16      | vehicle              | deliverShipment       | 104             | 4260            | 5460            | 2642            | 75             
+| 16      | vehicle              | deliverShipment       | 92              | 6120            | 7320            | 5581            | 75             
+| 16      | vehicle              | deliverShipment       | 52              | 7500            | 8700            | 6748            | 75             
+| 16      | vehicle              | deliverShipment       | 95              | 8880            | 10080           | 7915            | 75             
+| 16      | vehicle              | deliverShipment       | 33              | 10260           | 11460           | 8864            | 75             
+| 16      | vehicle              | deliverShipment       | 48              | 11520           | 12720           | 9198            | 75             
+| 16      | vehicle              | deliverShipment       | 47              | 12780           | 13980           | 9199            | 75             
+| 16      | vehicle              | deliverShipment       | 68              | 14160           | 15360           | 9806            | 4              
+| 16      | vehicle              | deliverShipment       | 65              | 15960           | 17160           | 12365           | 4              
+| 16      | vehicle              | deliverShipment       | 67              | 18000           | 19200           | 19673           | 4              
+| 16      | vehicle              | deliverShipment       | 69              | 19380           | 20580           | 20888           | 4              
+| 16      | vehicle              | end                   | -               | 20580           | undef           | 20888           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 17      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 17      | vehicle              | pickupShipment        | 13              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 8               | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 10              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 9               | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 54              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 58              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 6               | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 11              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 7               | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 12              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 56              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | pickupShipment        | 55              | 0               | 0               | 0               | 60             
+| 17      | vehicle              | deliverShipment       | 11              | 1620            | 2820            | 9584            | 60             
+| 17      | vehicle              | deliverShipment       | 13              | 3360            | 4560            | 14055           | 60             
+| 17      | vehicle              | deliverShipment       | 8               | 4920            | 6120            | 16323           | 60             
+| 17      | vehicle              | deliverShipment       | 10              | 7260            | 8460            | 23499           | 60             
+| 17      | vehicle              | deliverShipment       | 54              | 9060            | 10260           | 26887           | 60             
+| 17      | vehicle              | deliverShipment       | 9               | 10620           | 11820           | 28639           | 60             
+| 17      | vehicle              | deliverShipment       | 7               | 12240           | 13440           | 30778           | 60             
+| 17      | vehicle              | deliverShipment       | 58              | 14220           | 15420           | 36524           | 60             
+| 17      | vehicle              | deliverShipment       | 56              | 15480           | 16680           | 36525           | 60             
+| 17      | vehicle              | deliverShipment       | 55              | 16740           | 17940           | 36526           | 60             
+| 17      | vehicle              | deliverShipment       | 6               | 18000           | 19200           | 36527           | 60             
+| 17      | vehicle              | deliverShipment       | 12              | 20700           | 21900           | 48609           | 60             
+| 17      | vehicle              | end                   | -               | 21900           | undef           | 48609           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 18      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 18      | vehicle              | pickupShipment        | 21              | 0               | 0               | 0               | 107            
+| 18      | vehicle              | deliverShipment       | 21              | 1500            | 2700            | 5925            | 107            
+| 18      | vehicle              | end                   | -               | 2700            | undef           | 5925            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 19      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 19      | vehicle              | pickupShipment        | 98              | 0               | 0               | 0               | 42             
+| 19      | vehicle              | deliverShipment       | 98              | 960             | 2160            | 5000            | 42             
+| 19      | vehicle              | end                   | -               | 2160            | undef           | 5000            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 20      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 20      | vehicle              | pickupShipment        | 63              | 0               | 0               | 0               | 85             
+| 20      | vehicle              | deliverShipment       | 63              | 480             | 1680            | 3203            | 85             
+| 20      | vehicle              | end                   | -               | 1680            | undef           | 3203            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 21      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 21      | vehicle              | pickupShipment        | 73              | 0               | 0               | 0               | 7              
+| 21      | vehicle              | pickupShipment        | 36              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 99              | 0               | 0               | 0               | 42             
+| 21      | vehicle              | pickupShipment        | 62              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 59              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 72              | 0               | 0               | 0               | 7              
+| 21      | vehicle              | pickupShipment        | 43              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 51              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 60              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 41              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 50              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 44              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 40              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 49              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | pickupShipment        | 94              | 0               | 0               | 0               | 75             
+| 21      | vehicle              | deliverShipment       | 36              | 600             | 1800            | 2609            | 75             
+| 21      | vehicle              | deliverShipment       | 51              | 2400            | 3600            | 5617            | 75             
+| 21      | vehicle              | deliverShipment       | 73              | 3660            | 4860            | 5884            | 7              
+| 21      | vehicle              | deliverShipment       | 62              | 5040            | 6240            | 6616            | 75             
+| 21      | vehicle              | deliverShipment       | 59              | 6300            | 7500            | 7048            | 75             
+| 21      | vehicle              | deliverShipment       | 72              | 7740            | 8940            | 8071            | 7              
+| 21      | vehicle              | deliverShipment       | 44              | 9000            | 10200           | 8312            | 75             
+| 21      | vehicle              | deliverShipment       | 41              | 10620           | 11820           | 10754           | 75             
+| 21      | vehicle              | deliverShipment       | 60              | 11880           | 13080           | 10970           | 75             
+| 21      | vehicle              | deliverShipment       | 43              | 13260           | 14460           | 11479           | 75             
+| 21      | vehicle              | deliverShipment       | 99              | 14520           | 15720           | 11634           | 42             
+| 21      | vehicle              | deliverShipment       | 40              | 15840           | 17040           | 11916           | 75             
+| 21      | vehicle              | deliverShipment       | 94              | 18540           | 19740           | 20771           | 75             
+| 21      | vehicle              | deliverShipment       | 50              | 19800           | 21000           | 20772           | 75             
+| 21      | vehicle              | deliverShipment       | 49              | 21060           | 22260           | 20773           | 75             
+| 21      | vehicle              | end                   | -               | 22260           | undef           | 20773           | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 22      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 22      | vehicle              | pickupShipment        | 97              | 0               | 0               | 0               | 42             
+| 22      | vehicle              | deliverShipment       | 97              | 600             | 1800            | 2918            | 42             
+| 22      | vehicle              | end                   | -               | 1800            | undef           | 2918            | null           
++---------+----------------------+-----------------------+-----------------+-----------------+-----------------+-----------------+
+| 23      | vehicle              | start                 | -               | undef           | 0               | 0               | null           
+| 23      | vehicle              | pickupShipment        | 79              | 0               | 0               | 0               | 99             
+| 23      | vehicle              | deliverShipment       | 79              | 540             | 1740            | 2113            | 99             
+| 23      | vehicle              | end                   | -               | 1740            | undef           | 2113            | null           
++--------------------------------------------------------------------------------------------------------------------------------+
